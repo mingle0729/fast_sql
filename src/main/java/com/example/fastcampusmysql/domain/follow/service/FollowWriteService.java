@@ -11,7 +11,7 @@ import org.springframework.util.Assert;
 @RequiredArgsConstructor
 public class FollowWriteService {
     final private FollowRepository followRepository;
-    public void create(MemberDto fromMember, MemberDto toMember){
+    public Follow create(MemberDto fromMember, MemberDto toMember){
         Assert.isTrue(!fromMember.id().equals(toMember.id()),"From, To 회원이 동일합니다.");
 
         var follw = Follow.builder()
@@ -19,6 +19,6 @@ public class FollowWriteService {
                 .toMemberId(toMember.id())
                 .build();
 
-        followRepository.save(follw);
+        return followRepository.save(follw);
     }
 }

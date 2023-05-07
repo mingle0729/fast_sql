@@ -28,7 +28,7 @@ public class MemberNicknameHistoryRepository {
             .id(resultSet.getLong("id"))
             .memberId(resultSet.getLong("memberId"))
             .nickname(resultSet.getString("nickname"))
-            .createAt(resultSet.getObject("createAt", LocalDateTime.class))
+            .createdAt(resultSet.getObject("createdAt", LocalDateTime.class))
             .build();
     public List<MemberNicknameHistory> findById(Long memberId){
 
@@ -55,7 +55,7 @@ public class MemberNicknameHistoryRepository {
                 .id(id)
                 .memberId(id)
                 .nickname(history.getNickname())
-                .createAt(history.getCreateAt())
+                .createdAt(history.getCreatedAt())
                 .build()
                 ;
     }

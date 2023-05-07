@@ -62,4 +62,7 @@ public class PostLikeRepository {
                 .build();
     }
 
+    public Object count(Long id) {
+        return new Object();
+    }
 }

@@ -13,6 +13,7 @@ import java.util.List;
 @Service
 public class GetFollowingMembersUsecase {
     final private MemberReadService memberReadService;
+
     final private FollowReadService followReadService;
 
     public List<MemberDto> execute(Long memberId) {

@@ -9,10 +9,8 @@ import java.util.Objects;
 @Getter
 public class Follow {
     final private Long id;
-
     final private Long fromMemberId;
     final private Long toMemberId;
-
     final private LocalDateTime createdAt;
 
     @Builder

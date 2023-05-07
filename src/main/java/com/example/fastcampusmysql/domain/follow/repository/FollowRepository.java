@@ -40,6 +40,7 @@ public class FollowRepository {
                 .createdAt(follow.getCreatedAt())
                 .build();
     }
+
     private static final RowMapper<Follow> ROW_MAPPER = (ResultSet resultSet, int rowNum) -> Follow.builder()
             .id(resultSet.getLong("id"))
             .fromMemberId(resultSet.getLong("fromMemberId"))

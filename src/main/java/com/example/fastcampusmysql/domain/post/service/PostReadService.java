@@ -40,6 +40,11 @@ public class PostReadService {
         var postDtos = posts.stream().map(this::toDto).toList();
         return new PageCursor<>(cursorRequest.next(nextKey), postDtos);
     }
+
+    //    public PostDto toDto(Post post) {
+    //        return new PostDto(post.getId(),post.getContents(),post.getCreatedAt(),post.getLikeCount(),postLikeRepository.count(post.getId()));
+    //    }
+
     private PostDto toDto(Post post) {
         return new PostDto(
                 post.getId(),
@@ -61,6 +66,7 @@ public class PostReadService {
     public Page<Post> getPost(Long memberId, PageRequest pageRequest) {
         return postRepository.findAllByMemberId(memberId, pageRequest);
     }
+
 
     public PageCursor<Post> getPosts(Long memberId, CursorRequest cursorRequest) {
         var posts = findAllBy(memberId, cursorRequest);

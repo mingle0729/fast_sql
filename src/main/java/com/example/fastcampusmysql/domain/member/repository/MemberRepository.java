@@ -28,7 +28,7 @@ public class MemberRepository {
             .nickname(resultSet.getString("nickname"))
             .email(resultSet.getString("email"))
             .birthday(resultSet.getObject("birthday", LocalDate.class))
-            .createAt(resultSet.getObject("createAt", LocalDateTime.class))
+            .createdAt(resultSet.getObject("createdAt", LocalDateTime.class))
             .build();
 
     public List<Member> findAllByIdIn(List<Long> ids) {
@@ -53,7 +53,7 @@ public class MemberRepository {
                 .email(resultSet.getNString("email"))
                 .nickname(resultSet.getNString("nickname"))
                 .birthday(resultSet.getObject("birthday", LocalDate.class))
-                .createAt(resultSet.getObject("createAt", LocalDateTime.class))
+                .createdAt(resultSet.getObject("createdAt", LocalDateTime.class))
                 .build();
         var member = namedParameterJdbcTemplate.queryForObject(sql,param,rowMapper);
         return Optional.ofNullable(member);
@@ -80,7 +80,7 @@ public class MemberRepository {
                 .email(member.getEmail())
                 .nickname(member.getNickname())
                 .birthday(member.getBirthday())
-                .createAt(member.getCreateAt())
+                .createdAt(member.getCreatedAt())
                 .build()
                 ;
     }

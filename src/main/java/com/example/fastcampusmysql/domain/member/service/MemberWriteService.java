@@ -37,13 +37,14 @@ public class MemberWriteService {
         saveMemberNicknameHistory(savedMember);
         return memberRepository.save(member);
     }
+
     public void changNickname(Long id, String nickname) {
 
         var member = memberRepository.findById(id).orElseThrow();
         member.changeNickname(nickname);
-        memberRepository.save(member);
+        var savedMember = memberRepository.save(member);
 
-        saveMemberNicknameHistory(member);
+        saveMemberNicknameHistory(savedMember);
     }
 
     private void saveMemberNicknameHistory(Member member) {

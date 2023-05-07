@@ -1,10 +1,10 @@
 package com.example.fastcampusmysql.domain.post;
 
 import com.example.fastcampusmysql.IntegrationTest;
-import com.example.fastcampusmysql.factory.PostFixtureFactory;
 import com.example.fastcampusmysql.domain.post.dto.DailyPostCountRequest;
 import com.example.fastcampusmysql.domain.post.repository.PostRepository;
 import com.example.fastcampusmysql.domain.post.service.PostReadService;
+import com.example.fastcampusmysql.factory.PostFixtureFactory;
 import com.example.fastcampusmysql.util.CursorRequest;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -16,7 +16,6 @@ import java.time.LocalDate;
 import java.util.stream.IntStream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-
 
 @IntegrationTest
 class PostReadServiceTest {
