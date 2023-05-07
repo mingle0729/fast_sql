@@ -24,7 +24,7 @@ public class FollowRepository {
     public Follow save(Follow follow) {
         if(follow.getId()==null)
             return insert(follow);
-        throw new UnsupportedOperationException("Follow는 갱신을 지원하지 않습니다.");
+        throw new UnsupportedOperationException("follow는 갱신을 지원하지 않습니다.");
     }
     private Follow insert(Follow follow) {
         SimpleJdbcInsert jdbcInsert = new SimpleJdbcInsert(namedParameterJdbcTemplate.getJdbcTemplate())
@@ -53,4 +53,11 @@ public class FollowRepository {
 
         return namedParameterJdbcTemplate.query(sql,param,ROW_MAPPER);
     }
+
+    public List<Follow> findAllByToMemberId(Long toMemberId) {
+        var sql = String.format("SELECT * FROM %s WHERE toMemberId = :toMemberId", TABLE);
+        var params = new MapSqlParameterSource().addValue("toMemberId", toMemberId);
+        return namedParameterJdbcTemplate.query(sql, params, ROW_MAPPER);
+    }
+
 }
